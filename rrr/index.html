@@ -1,0 +1,148 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blob+Spongey+Lowercase:wght@400&display=swap" />
+    <style>
+        /* Button styles */
+        .iconamoonmenu-burger-horizont-child {
+            position: absolute;
+            height: 8.57%;
+            width: 80%;
+            top: 20%;
+            right: 11.43%;
+            bottom: 71.43%;
+            left: 8.57%;
+            border-radius: 7px;
+            background-color: #000;
+        }
+        .iconamoonmenu-burger-horizont-item {
+            position: absolute;
+            height: 8.57%;
+            width: 80%;
+            top: 45.71%;
+            right: 11.43%;
+            bottom: 45.71%;
+            left: 8.57%;
+            border-radius: 7px;
+            background-color: #000;
+        }
+        .iconamoonmenu-burger-horizont-inner {
+            position: absolute;
+            height: 8.57%;
+            width: 80%;
+            top: 71.43%;
+            right: 11.43%;
+            bottom: 20%;
+            left: 8.57%;
+            border-radius: 7px;
+            background-color: #000;
+        }
+        .iconamoonmenu-burger-horizont {
+    position: fixed; /* Используем fixed для закрепления кнопки */
+    top: 10px; /* Расстояние от верхней границы */
+    right: 10px; /* Расстояние от правой границы */
+    width: 49px;
+    height: 49px;
+    overflow: hidden;
+    cursor: pointer; /* Изменяем курсор на указатель */
+}
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            right: -400px; /* Start off-screen */
+            top: 0;
+            width: 300px; /* Width of the modal */
+            height: 100%; /* Full height */
+            background-color: #fefefe; /* White background */
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            transition: right 0.8s ease; /* Transition effect */
+        }
+
+        .modal.open {
+            display: block; /* Show modal */
+            right: 0; /* Slide in */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function openModal() {
+            document.getElementById("myModal").classList.add("open");
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").classList.remove("open");
+        }
+    </script>
+</head>
+<body>
+    <div class="macbook-pro-14-3">
+        <!-- <img class="macbook-pro-14-3-child" alt="" src="Group 13.png">-->
+         <!--<img class="macbook-pro-14-3-item" alt="" src="Group 14.png">-->
+        <div class="macbook-pro-14-3-inner"></div>
+        <div class="rectangle-div"></div>
+       <!-- <img class="uerf-j-1" alt="" src="ue,rf ,j, 1.png">-->
+        
+        <div class="button2"></div>
+        <div class="button3"></div>
+        <div class="button4"></div>
+        <div class="container1"></div>
+        <div class="container2"></div>
+        <div class="container3"></div>
+        <div class="text"></div>
+       <!-- <img class="big-king-menu-bk-1-icon" alt="" src="big-king-menu-bk 1.png">-->
+        <!-- <img class="icon" alt="" src="Без имени-1 1.png">-->
+         <!--<img class="icon1" alt="" src="Без имени-1 2.png">-->
+         
+        
+        <div class="div">Взрослый крабсбургер</div>
+        <div class="div1">Мотобургер</div>
+        <div class="button5"></div>
+        <div class="button6"></div>
+        <div class="button7"></div>
+        <div class="div2">499$</div>
+        <div class="div3">599$</div>
+        <div class="div4">299$</div>
+        <div class="div5">
+            <p class="p">Плачущий Джонни</p>
+        </div>
+        
+        <div class="iconamoonmenu-burger-horizont" id="button1Container" onclick="openModal()">
+            <div class="iconamoonmenu-burger-horizont-child"></div>
+            <div class="iconamoonmenu-burger-horizont-item"></div>
+            <div class="iconamoonmenu-burger-horizont-inner"></ div>
+        </div>
+    </div>
+
+    <!-- The Sliding Modal -->
+    <!-- The Sliding Modal -->
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <h2>Modal Title</h2>
+  <p><a href="menu.html">Меню</a></p>
+  <p><a href="order.html">Заказать</a></p>
+  <p><a href="promotions.html">Акции</a></p>
+  <p><a href="about.html">О нас</a></p>
+  <p><a href="booking.html">Забронировать</a></p>
+</div>
+</body>
+</html>
