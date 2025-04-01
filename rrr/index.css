@@ -385,3 +385,17 @@
 .modal a:hover {
     background-color: #0056b3; /* Цвет фона при наведении */
 }
+ 
+
+.macbook-pro-14-3 {
+    width: 100%;
+    position: relative;
+    background: linear-gradient(180deg, #4dedd9, #3fe2dd 13.32%, #39dfdf 25.14%, #30d5db 35.64%, #23c8dc 51.14%, #1bb9e0 67.14%, #19b5d8 85.64%, #2da2d5);
+    height: 5981px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 22px;
+    color: #000;
+    font-family: 'Blob Spongey Lowercase';
+}
+
