@@ -38,6 +38,7 @@
     height: 733px;
     object-fit: cover;
 }
+
 .button2 {
     position: absolute;
     top: 533px;
@@ -384,3 +385,4 @@
 .modal a:hover {
     background-color: #0056b3; /* Цвет фона при наведении */
 }
+
