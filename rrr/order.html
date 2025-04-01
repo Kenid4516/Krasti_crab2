@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	<link rel="stylesheet" href="./index.css" />
+</head>
+<body>
+  	<div class="macbook-pro-14-3">
+  		<div class="div">
+    		<div class="child">
+    		</div>
+    		<div class="container8">
+                
+            </div>
+    		<div class="container9">
+    		</div>
+            <style>
+
+                .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    right: -400px; /* Start off-screen */
+    top: 0;
+    width: 400px; /* Width of the modal */
+    height: 100%; /* Full height */
+    background-color: #fefefe; /* White background */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    transition: right 0.3s ease; /* Transition effect */
+    padding: 20px; /* Добавьте отступы, если необходимо */
+}
+
+.modal.open {
+    display: block; /* Show modal */
+    right: 0; /* Slide in */
+}
+
+.close {
+    color: #aaa;
+    position: absolute; /* Изменено на absolute для позиционирования */
+    top: 20px; /* Расстояние от верхней границы */
+    right: 20px; /* Расстояние от правой границы */
+    font-size: 32px; /* Размер шрифта для кнопки закрытия */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.modal h1 {
+    font-size: 24px; /* Размер шрифта для заголовка */
+}
+
+.modal p {
+    font-size: 28px; /* Размер шрифта для текста */
+}
+.modal a {
+    display: inline-block; /* Делаем ссылки блочными для лучшего управления */
+    padding: 10px 9px; /* Добавляем отступы для кнопок */
+    margin: 1px 0; /* Отступы между кнопками */
+    background-color: #ffffff; /* Цвет фона кнопки */
+    color: rgb(0, 0, 0); /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Закругленные углы */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+.modal a:hover {
+    background-color: #0056b3; /* Цвет фона при наведении */
+}
+                .iconamoonmenu-burger-horizont-child {
+            position: absolute;
+            height: 8.57%;
+            width: 80%;
+            top: 20%;
+            right: 11.43%;
+            bottom: 71.43%;
+            left: 8.57%;
+            border-radius: 7px;
+            background-color: #000;
+        }
+        .iconamoonmenu-burger-horizont-item {
+            position: absolute;
+            height: 8.57%;
+            width: 80%;
+            top: 45.71%;
+            right: 11.43%;
+            bottom: 45.71%;
+            left: 8.57%;
+            border-radius: 7px;
+            background-color: #000;
+        }
+        .iconamoonmenu-burger-horizont-inner {
+            position: absolute;
+            height: 8.57%;
+            width: 80%;
+            top: 71.43%;
+            right: 11.43%;
+            bottom: 20%;
+            left: 8.57%;
+            border-radius: 7px;
+            background-color: #000;
+        }
+        .iconamoonmenu-burger-horizont {
+    position: fixed; /* Используем fixed для закрепления кнопки */
+    top: 10px; /* Расстояние от верхней границы */
+    right: 10px; /* Расстояние от правой границы */
+    width: 49px;
+    height: 49px;
+    overflow: hidden;
+    cursor: pointer; /* Изменяем курсор на указатель */
+}
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            right: -400px; /* Start off-screen */
+            top: 0;
+            width: 300px; /* Width of the modal */
+            height: 100%; /* Full height */
+            background-color: #fefefe; /* White background */
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            transition: right 0.8s ease; /* Transition effect */
+        }
+
+        .modal.open {
+            display: block; /* Show modal */
+            right: 0; /* Slide in */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+                .macbook-pro-14-3 {
+                    width: 100%;
+                    position: relative;
+                    background: linear-gradient(180deg, #4dedd9, #3fe2dd 13.32%, #39dfdf 25.14%, #30d5db 35.64%, #23c8dc 51.14%, #1bb9e0 67.14%, #19b5d8 85.64%, #2da2d5);
+                    min-height: 100vh; /* Заменено на min-height для заполнения всего экрана */
+                    overflow: hidden;
+                    text-align: center;
+                    font-size: 22px;
+                    color: #000;
+                    font-family: 'Blob Spongey Lowercase';
+                }
+
+                .child {
+                    position: absolute;
+                    top: -840px;
+                    left: -110px;
+                    background-color: #d9d9d9;
+                    width: 1215px;
+                    height: 87px;
+                }
+                .container8 {
+                    position: absolute;
+                    top: -685px;
+                    left: 20px;
+                    box-shadow: 9px 14px 4px rgba(0, 0, 0, 0.25);
+                    border-radius: 35px;
+                    background-color: #d9d9d9;
+                    width: 301px;
+                    height: 323px;
+                }
+                .container9 {
+                    position: absolute;
+                    top: -685px;
+                    left: 680px;
+                    box-shadow: 9px 14px 4px rgba(0, 0, 0, 0.25);
+                    border-radius: 35px;
+                    background-color: #d9d9d9;
+                    width: 301px;
+                    height: 323px;
+                }
+
+            </style>  
+  	</div>
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Modal Title</h2>
+        <p><a href="menu.html">Меню</a></p>
+        <p><a href="order.html">Заказать</a></p>
+        <p><a href="promotions.html">Акции</a></p>
+        <p><a href="about.html">О нас</a></p>
+        <p><a href="booking.html">Забронировать</a></p>
+    </div>
+</body>
+</html>

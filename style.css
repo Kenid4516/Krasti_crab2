@@ -1,0 +1,48 @@
+.iconamoonmenu-burger-horizont-child {
+    position: absolute;
+    height: 8.57%;
+    width: 80%;
+    top: 20%;
+    right: 11.43%;
+    bottom: 71.43%;
+    left: 8.57%;
+    border-radius: 7px; 
+    background-color: #000;
+}
+.iconamoonmenu-burger-horizont-item {
+    position: absolute;
+    height: 8.57%;
+    width: 80%;
+    top: 45.71%;
+    right: 11.43%;
+    bottom: 45.71%;
+    left: 8.57%;
+    border-radius: 7px;
+    background-color: #000;
+}
+.iconamoonmenu-burger-horizont-inner {
+    position: absolute;
+    height: 8.57%;
+    width: 80%;
+    top: 71.43%;
+    right: 11.43%;
+    bottom: 20%;
+    left: 8.57%;
+    border-radius: 7px;
+    background-color: #000;
+}
+.iconamoonmenu-burger-horizont {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 49px;
+    height: 49px;
+    overflow: hidden;
+}
+.button1 {
+    width: 100%;
+    position: relative;
+    height: 49px;
+    cursor: pointer;
+}
+
