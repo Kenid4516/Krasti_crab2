@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blob+Spongey+Lowercase:wght@400&display=swap" />
+    <style>
+        /* Стили для изображения */
+        .image-container {
+            position: relative; /* Устанавливаем относительное позиционирование для контейнера */
+            max-width: 100%; /* Адаптация изображения к ширине контейнера */
+            height: auto; /* Сохранение пропорций */
+        }
+
+        img {
+            width: 100%; /* Изображение занимает всю ширину контейнера */
+            height: auto; /* Сохранение пропорций */
+        }
+
+        /* Button styles */
+        .iconamoonmenu-burger-horizont-child,
+        .iconamoonmenu-burger-horizont-item,
+        .iconamoonmenu-burger-horizont-inner {
+            position: absolute; /* Позиционирование элементов абсолютно относительно родителя */
+            height: 8.57%;
+            width: 80%;
+            left: 10%; /* Центрируем элементы по горизонтали */
+            border-radius: 7px;
+            background-color: #000;
+            color: white; /* Цвет текста для видимости */
+            text-align: center; /* Центрируем текст */
+        }
+
+        .iconamoonmenu-burger-horizont-child {
+            top: 20%; /* Расположение элемента */
+        }
+
+        .iconamoonmenu-burger-horizont-item {
+            top: 45.71%; /* Расположение элемента */
+        }
+
+        .iconamoonmenu-burger-horizont-inner {
+            top: 71.43%; /* Расположение элемента */
+        }
+
+        .iconamoonmenu-burger-horizont {
+            position: fixed; /* Используем fixed для закрепления кнопки */
+            top: 10px; /* Расстояние от верхней границы */
+            right: 10px; /* Расстояние от правой границы */
+            width: 49px;
+            height: 49px;
+            overflow: hidden;
+            cursor: pointer; /* Изменяем курсор на указатель */
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            right: -400px; /* Start off-screen */
+            top: 0;
+            width: 300px; /* Width of the modal */
+            height: 100%; /* Full height */
+            background-color: #fefefe; /* White background */
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            transition: right 0.8s ease; /* Transition effect */
+        }
+
+        .modal.open {
+            display: block; /* Show modal */
+            right: 0; /* Slide in */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function openModal() {
+            document.getElementById("myModal").classList.add("open");
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").classList.remove("open");
+        }
+    </script>
+</head>
+<body>
+    <div class="image-container">
+        <img src="https://img.com-x.life/comix/5647/83477/1563144102_0.93435200.jpg" alt="Описание изображения">
+        
+        </div>
+
+    <div class="iconamoonmenu-burger-horizont" id="button1Container" onclick="openModal()">
+        <div class="iconamoonmenu-burger-horizont-child"></div>
+        <div class="iconamoonmenu-burger-horizont-item"></div>
+        <div class="iconamoonmenu-burger-horizont-inner"></div>
+    </div>
+
+    <!-- The Sliding Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Modal Title</h2>
+        <p><a href="menu.html">Меню</a></p>
+        <p><a href="order.html">Заказать</a></p>
+        <p><a href="promotions.html">Акции</a></p>
+        <p><a href="about.html">О нас</a></p>
+        <p><a href="booking.html">Забронировать</a></p>
+    </div>
+</body>
+</html>
