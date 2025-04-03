@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blob+Spongey+Lowercase:wght@400&display=swap" />
+    <title>Меню КрастиКраб</title>
+    <style>
+        :root {
+            --header-color: #742a1e; /* Цвет заголовка */
+            --text-color: #333333; /* Цвет остального текста */
+            --font-size: 22px; /* Размер шрифта */
+        }
+
+        .div {
+            width: 565px;
+            position: relative;
+            font-size: 100px;
+            font-family: 'Blob Spongey Lowercase';
+            color: var(--header-color); /* Цвет заголовка */
+            text-align: center;
+            display: inline-block;
+            text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+        }
+
+        body {
+            font-family: 'Blob Spongey Lowercase', cursive;
+            background-color: #E9D3A5; /* Цвет фона для лучшего контраста */
+            margin: 0;
+            padding: 20px;
+        }
+        .parent {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: var(--header-color); /* Цвет заголовка */
+        }
+        .menu-section {
+            display: flex;
+            flex-direction: column; /* Вертикальное расположение */
+            align-items: center; /* Центрирование по горизонтали */
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f2ecde; /* Белый фон для секции меню */
+            border-radius: 10px; /* Закругленные углы */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для эффекта */
+        }
+        .menu-item {
+            font-size: var(--font-size); /* Используем переменную для размера шрифта */
+            margin: 5px 0;
+            width: 100%; /* Занимает всю ширину контейнера */
+            text-align: left; /* Выравнивание текста по левому краю */
+            padding: 5px 10px; /* Отступы для удобства чтения */
+            border-bottom: 1px solid #ffffff; /* Разделительная линия */
+            color: var(--text-color); /* Цвет остального текста */
+        }
+        .menu-item:last-child {
+            border-bottom: none; /* Убираем нижнюю границу у последнего элемента */
+        }
+        .iconamoonmenu-burger-horizont-child {
+            position: absolute;
+            height: 8.57%;
+            width: 80%;
+            top: 20%;
+            right: 11.43%;
+            bottom: 71.43%;
+            left: 8.57%;
+            border-radius: 7px;
+            background-color: #000;
+        }
+        .iconamoonmenu-burger-horizont-item {
+            position: absolute;
+            height: 8.57%;
+            width: 80%;
+            top: 45.71%;
+            right: 11.43%;
+            bottom: 45.71%;
+            left: 8.57%;
+            border-radius: 7px;
+            background-color: #000;
+        }
+        .iconamoonmenu-burger-horizont-inner {
+            position: absolute;
+            height: 8.57%;
+            width: 80%;
+            top: 71.43%;
+            right: 11.43%;
+            bottom: 20%;
+            left: 8.57%;
+            border-radius: 7px;
+            background-color: #000;
+        }
+        .iconamoonmenu-burger-horizont {
+    position: fixed; /* Используем fixed для закрепления кнопки */
+    top: 10px; /* Расстояние от верхней границы */
+    right: 10px; /* Расстояние от правой границы */
+    width: 49px;
+    height: 49px;
+    overflow: hidden;
+    cursor: pointer; /* Изменяем курсор на указатель */
+}
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            right: -400px; /* Start off-screen */
+            top: 0;
+            width: 300px; /* Width of the modal */
+            height: 100%; /* Full height */
+            background-color: #fefefe; /* White background */
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            transition: right 0.8s ease; /* Transition effect */
+        }
+
+        .modal.open {
+            display: block; /* Show modal */
+            right: 0; /* Slide in */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function openModal() {
+            document.getElementById("myModal").classList.add("open");
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").classList.remove("open");
+        }
+    </script>
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="title">КрастиКраб</div>
+        <div class="title">Меню</div>
+    </div>
+
+    <div class="menu-section">
+        <div class="menu-item">Взрослый крабсбургер............1.25</div>
+        <div class="menu-item">Мотобургер........................1.50</div>
+        <div class="menu-item">Совет художнику...................2.00</div>
+        <div class="menu-item">Плачущий Джонни.............299$</div>
+        <div class="menu-item">Дюжина плачущих коров .....3.00</div>
+        <div class="menu-item">Двойной бифбургер.................3.55</div>
+        <div class="menu-item">Картофель фри........................1.55</div>
+        <div class="menu-item">Красти-дог.......................3.4</div>
+    </div>
+
+    <div class="menu-section">
+        <div class="menu-item">Хлюпик............1.25</div>
+        <div class="menu-item">Мотобургер........................1.50</div>
+        <div class="menu-item">Совет художнику...................2.00</div>
+        <div class="menu-item">Глазастый крабсбургер.............299$</div>
+        <div class="menu-item">Салат .....3.00</div>
+        <div class="menu-item">Шампунь.................3.55</div>
+        <div class="menu-item">Пескучий тост........................1.65</div>
+        <div class="menu-item">Крабьи котлеты Делюксг.......................3.4</div>
+    </div>
+    <div class="iconamoonmenu-burger-horizont" id="button1Container" onclick="openModal()">
+        <div class="iconamoonmenu-burger-horizont-child"></div>
+        <div class="iconamoonmenu-burger-horizont-item"></div>
+        <div class="iconamoonmenu-burger-horizont-inner"></ div>
+    </div>
+</div>
+
+<!-- The Sliding Modal -->
+<!-- The Sliding Modal -->
+<div id="myModal" class="modal">
+<span class="close" onclick="closeModal()">&times;</span>
+<h2>Modal Title</h2>
+<p><a href="index.html">Главная</a></p>
+<p><a href="menu.html">Меню</a></p>
+<p><a href="order.html">Заказать</a></p>
+<p><a href="promotions.html">Акции</a></p>
+<p><a href="booking.html">Забронировать</a></p>
+<p><a href="voiti.html">Войти</a></p>
+<p><a href="about.html">О нас</a></p>
+</div>
+</body>
+</html>

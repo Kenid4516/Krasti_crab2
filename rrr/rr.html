@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    
+    <link rel="stylesheet" href="./rrr.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blob+Spongey+Lowercase:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=CoFo+Sans:wght@500&display=swap" />
+    
+    <style>
+        /* Стили для выпадающего меню */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Стили для корзины */
+        .cart {
+            position: absolute;
+            top: 60px; /* Позиция под меню */
+            right: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            z-index: 10;
+            width: 200px; /* Ширина корзины */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            display: none; /* Скрыто по умолчанию */
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .cart-total {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Стили для кнопки "Добавить в корзину" */
+        .add-to-cart {
+            background-color: #4CAF50; /* Зеленый цвет */
+            color: white; /* Белый текст */
+            border: none; /* Без границы */
+            border-radius: 50%; /* Круглая кнопка */
+            width: 30px; /* Ширина кнопки */
+            height: 30px; /* Высота кнопки */
+            cursor: pointer; /* Указатель при наведении */
+            font-size: 20px; /* Размер шрифта */
+            position: absolute; /* Позиционирование */
+            right: 10px; /* Отступ от правого края */
+            top: 10px; /* Отступ от верхнего края */
+        }
+
+        .add-to-cart:hover {
+            background-color: #45a049; /* Темнее при наведении */
+        }
+
+        #order-button {
+            background-color: #4CAF50; /* Зеленый цвет */
+            color: white; /* Белый текст */
+            border: none; /* Без границы */
+            border-radius: 5px; /* Закругленные углы */
+            padding: 5px 10px; /* Отступы */
+            cursor: pointer; /* Указатель при наведении */
+            width: 100%; /* Ширина кнопки */
+        }
+
+        #order-button:hover {
+            background-color: #45a049; /* Темнее при наведении */
+        }
+    </style>
+</head>
+<body>
+    <div class="div">
+        <div class="header">
+            <div class="brandadress">
+                <div class="logo">
+                    <div class="logo-child"></div>
+                    <div class="xl-1"></div>
+                </div>
+                <div class="frame-parent">
+                    <div class="parent">
+                        <div class="div1">+7 999 000 00 00</div>
+                        <div class="div2"></div>
+                    </div>
+                    <div class="div3">
+                        <div class="frame-group">
+                            <img class="frame-child" alt="" src="Frame 7.png">
+                            <div class="wrapper">
+                                <div class="div4">Доставка</div>
+                            </div>
+                        </div>
+                        <div class="child"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="div5">
+                <img class="icon" alt="" src="Logo.png">
+                <img class="icon1" alt="" src="поиск.svg">
+                <div class="div6">
+                    <img class="cart-icon" alt="" src="Cart.svg">
+                    <div class="div7" id="cart-total-display" style="cursor: pointer;">0 ₽</div>
+                    <div class="cart" id="cart">
+                        <h3>Корзина</h3>
+                        <div id="cart-items"></div>
+                        <div class="cart-total" id="cart-total">Итого: 0 ₽</div>
+                        <button id="order-button">Заказать</button>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <div class="div6">
+                        <img class="cart-icon" alt="" src="Pixel/Regular/Divider.svg">
+                        <div class="div9">Меню</div>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="#">Заказы</a>
+                        <a href="#">Кабинет</a>
+                        <a href="#">Контакты</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="div10"></div>
+        <div class="div11">
+            <div class="div12">
+                <div class="item"></div>
+                <div class="div13">Бесплатная доставка</div>
+            </div>
+        </div>
+        <div class="sticky">
+            <div class="div14">
+                <div class="div15">Бургеры</div>
+            </div>
+            <div class="div16">
+                <div class="div15">от шефа</div>
+            </div>
+            <div class="div16">
+                <div class="div15">сэндвичи</div>
+            </div>
+        </div>
+        <div class="div20">
+            <div class="div21">Бургеры</div>
+            <div class="div22">
+                <div class="div23">
+                    <div class="inner"></div>
+                    <div class="group">
+                        <div class="div24">220 ₽</div>
+                        <div class="div25">Взрослый крабсбургер</div>
+                        <img class="frame-item" alt="" src="Frame 3412.svg">
+                        <button class="add-to-cart" data-price="220" data-name="Взрослый крабсбургер">+</button>
+                    </div>
+                </div>
+                <div class="div26">
+                    <div class="inner"></div>
+                    <div class="group">
+                        <div class="div24">220 ₽</div>
+                        <div class="div25">Мотобургер</div>
+                        <button class="add-to-cart" data-price="220" data-name="Мотобургер">+</button>
+                    </div>
+                </div>
+                <div class="div29">
+                    <div class="inner"></div>
+                    <div class="group">
+                        <div class="div24">220 ₽</div>
+                        <div class="div25">Плачущий Джонни</div>
+                        <img class="frame-item" alt="" src="Frame 3412.svg">
+                        <button class="add-to-cart" data-price="220" data-name="Плачущий Джонни">+</button>
+                    </div>
+                </div>
+                <div class="div32">
+                    <div class="inner"></div>
+                    <div class="group">
+                        <div class="div24">220 ₽</div>
+                        <div class="div34">
+                            <span class="txt">
+                                <p class="p">Двойной бифбургер</p>
+                            </span>
+                        </div>
+                        <img class="frame-item" alt="" src="Frame 3412.svg">
+                        <button class="add-to-cart" data-price="220" data-name="Двойной бифбургер">+</button>
+                    </div>
+                </div>
+                <div class="div35">
+                    <div class="inner"></div>
+                    <div class="group">
+                        <div class="div24">220 ₽</div>
+                        <div class="div25">Красти-дог</div>
+                        <img class="frame-item" alt="" src="Frame 3412.svg">
+                        <button class="add-to-cart" data-price="220" data-name="Красти-дог">+</button>
+                    </div>
+                </div>
+                <div class="div38">
+                    <div class="inner"></div>
+                    <div class="group">
+                        <div class="div24">220 ₽</div>
+                        <div class="div25">Глазастый крабсбургер</div>
+                        <img class="frame-item" alt="" src="Frame 3412.svg">
+                        <button class="add-to-cart" data-price="220" data-name="Глазастый крабсбургер">+</button>
+                    </div>
+                </div>
+                <div class="div41">
+                    <div class="inner"></div>
+                    <div class="group">
+                        <div class="div24">220 ₽</div>
+                        <div class="div25">Крабьи котлеты Делюксг</div>
+                        <img class="frame-item" alt="" src="Frame 3412.svg">
+                        <button class="add-to-cart" data-price="220" data-name="Крабьи котлеты Делюксг">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="div44">
+            <div class="div45">От шефа</div>
+            <div class="div46">
+                <div class="div47">
+                    <div class="inner"></div>
+                    <div class="parent6">
+                        <div class="div48">220 ₽</div>
+                        <div class="div49">Говяжья вырезка с подкопчённым соусом...</div>
+                        <div class="div50">250 г</div>
+                        <img class="frame-item" alt="" src="Frame 3412.svg">
+                        <div class="div51">
+                            <p class="p">(говяжья вырезка, бекон, сыр Дор блю, булгур, болгарский перец, цукини, сливки)</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Добавьте другие блюда с кнопками "Добавить в корзину" аналогично -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const cart = [];
+        const cartTotalDisplay = document.getElementById('cart-total-display');
+        const cartContainer = document.getElementById('cart');
+        const cartItemsContainer = document.getElementById('cart-items');
+
+        // Функция для добавления товара в корзину
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCartTotal();
+            updateCartItems();
+        }
+
+        // Функция для обновления отображения общей стоимости
+        function updateCartTotal() {
+            const total = cart.reduce((acc, item) => acc + item.price, 0);
+            cartTotalDisplay.innerHTML = `${total} ₽`;
+            document.getElementById('cart-total').innerHTML = `Итого: ${total} ₽`;
+        }
+
+        // Функция для обновления содержимого корзины
+        function updateCartItems() {
+            cartItemsContainer.innerHTML = '';
+            cart.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                itemDiv.innerHTML = `${item.name} - ${item.price} ₽`;
+                cartItemsContainer.appendChild(itemDiv);
+            });
+        }
+
+        // Обработчик событий для кнопок "Добавить в корзину"
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const price = parseInt(button.getAttribute('data-price'));
+                const name = button.getAttribute('data-name');
+                addToCart(name, price);
+            });
+        });
+
+        // Обработчик событий для кнопки "Заказать"
+        document.getElementById('order-button').addEventListener('click', () => {
+            window.location.href = 'delivery.html'; // Переход на страницу доставки
+        });
+
+        // Показать корзину при нажатии на общую стоимость
+        cartTotalDisplay.addEventListener('click', () => {
+            cartContainer.style.display = cartContainer.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Закрыть корзину при нажатии вне её
+        document.addEventListener('click', (event) => {
+            if (!cartContainer.contains(event.target) && event.target !== cartTotalDisplay) {
+                cartContainer.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

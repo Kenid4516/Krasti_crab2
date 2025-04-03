@@ -1,83 +1,229 @@
 <!DOCTYPE html>
 <html>
 <head>
-  	<meta charset="utf-8">
-  	<meta name="viewport" content="initial-scale=1, width=device-width">
-  	
-  	<link rel="stylesheet"  href="./index.css" />
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blob Spongey Lowercase:wght@400&display=swap" />
-  	
-  	
-  	
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" />
 </head>
 <body>
-  	
-  	<div class="bron">
-    		<div class="bron-child">
-    		</div>
-    		<div class="div">Авторизация</div>
-    		<div class="rectangle-parent">
-      			<div class="group-child">
-      			</div>
-      			<div class="div1">Логин</div>
-    		</div>
-  	</div>
-  	<style>
-        .bron-child {
-  	position: absolute;
-  	top: 103px;
-  	left: 349px;
-  	border-radius: 64px;
-  	background-color: #d9d9d9;
-  	width: 502px;
-  	height: 724px;
-}
-.div {
-  	position: absolute;
-  	top: 121px;
-  	left: 485px;
-}
-.group-child {
-  	position: absolute;
-  	top: 0px;
-  	left: 0px;
-  	border-radius: 32px;
-  	background-color: rgba(217, 217, 217, 0);
-  	border: 1px solid #000;
-  	box-sizing: border-box;
-  	width: 355px;
-  	height: 49px;
-}
-.div1 {
-  	position: absolute;
-  	top: 15px;
-  	left: 42px;
-}
-.rectangle-parent {
-  	position: absolute;
-  	top: 250px;
-  	left: 422px;
-  	width: 355px;
-  	height: 49px;
-  	font-size: 24px;
-  	color: rgba(0, 0, 0, 0.35);
-}
-.bron {
-  	width: 100%;
-  	position: relative;
-  	background: linear-gradient(180deg, #4dedd9, #3fe2dd 13.32%, #39dfdf 25.14%, #30d5db 35.64%, #23c8dc 51.14%, #1bb9e0 67.14%, #19b5d8 85.64%, #2da2d5);
-  	height: 1584px;
-  	overflow: hidden;
-  	text-align: left;
-  	font-size: 40px;
-  	color: #000;
-  	font-family: 'Blob Spongey Lowercase';
-}
+    <div class="bron">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <div class="card-title">
+                        <div class="welcome-back">Добро пожаловать!</div>
+                    </div>
+                    <div class="text-default1">
+                        <div class="log-in">Выберите действие:</div>
+                    </div>
+                    <div class="tab-buttons">
+                        <div class="tab-button active" id="loginTab">Войти</div>
+                        <div class="tab-button" id="registerTab">Зарегистрироваться</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-content">
+                <form id="loginForm" class="form">
+                    <div class="fieldset">
+                        <div class="form-group">
+                            <div class="label">
+                                <div class="username">Имя</div>
+                            </div>
+                            <div class="input-default">
+                                <input type="text" id="loginUsername" class="placeholder" placeholder="имя" required>
+                            </div>
+                            <div class="input-default">
+                                <input type="email" id="loginEmail" class="placeholder" placeholder="mail" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <div class="username">Введите Пароль</div>
+                            </div>
+                            <div class="input-default">
+                                <input type="password" id="loginPassword" class="placeholder" placeholder="Введите пароль" required>
+                            </div>
+                        </div>
+                        <div class="checkbox-field">
+                            <div class="checkbox"></div>
+                            <div class="label">
+                                <div class="username">Запомнить меня</div>
+                            </div>
+                        </div>
+                        <div class="button-primary" id="loginButton">
+                            <div class="log-in">Войти</div>
+                        </div>
+                    </div>
+                    <div class="forgot-password">
+                        <div class="label">
+                            <div class="log-in">Забыли пароль?</div>
+                        </div>
+                    </div>
+                </form>
 
+                <form id="registerForm" class="form" style="display: none;">
+                    <div class="fieldset">
+                        <div class="form-group">
+                            <div class="label">
+                                <div class="username">Имя</div>
+                            </div>
+                            <div class="input-default">
+                                <input type="text" id="registerUsername" class="placeholder" placeholder="имя" required>
+                            </div>
+                            <div class="input-default">
+                                <input type="email" id="registerEmail" class="placeholder" placeholder="mail" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="label">
+                                <div class="username">Введите Пароль</div>
+                            </div>
+                            <div class="input-default">
+                                <input type="password" id="registerPassword" class="placeholder" placeholder="Введите пароль" required>
+                            </div>
+                        </div>
+                        <div class="button-primary" id="registerButton">
+                            <div class="log-in">Зарегистрироваться</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="avatar-container"></div>
+        </div>
+    </div>
 
+    <script>
+        // Переключение между формами
+        document.getElementById('loginTab').addEventListener('click', function() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('registerForm').style.display = 'none';
+            this.classList.add('active');
+            document.getElementById('registerTab').classList.remove('active');
+        });
+
+        document.getElementById('registerTab').addEventListener('click', function() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+            this.classList.add('active');
+            document.getElementById('loginTab').classList.remove('active');
+        });
+
+        document.getElementById('loginButton').addEventListener('click', function() {
+            const username = document.getElementById('loginUsername').value;
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            if (username && email && password) {
+                fetch('login.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, email, password })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.href = 'index.html';
+                    } else {
+                        alert('Ошибка входа. Пожалуйста, проверьте введенные данные.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Ошибка:', error);
+                });
+            } else {
+                alert('Пожалуйста, заполните все поля.');
+            }
+        });
+
+        document.getElementById(' registerButton').addEventListener('click', function() {
+            const username = document.getElementById('registerUsername').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+
+            if (username && email && password) {
+                fetch('register.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, email, password })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Регистрация успешна! Теперь вы можете войти.');
+                        document.getElementById('loginTab').click(); // Переключение на форму входа
+                    } else {
+                        alert('Ошибка регистрации. Пожалуйста, проверьте введенные данные.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Ошибка:', error);
+                });
+            } else {
+                alert('Пожалуйста, заполните все поля.');
+            }
+        });
+    </script>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            font-family: 'Blob Spongey Lowercase', sans-serif;
+        }
+        .bron {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .card {
+            padding: 20px;
+        }
+        .tab-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+        .tab-button {
+            cursor: pointer;
+            padding: 8px 16px;
+            border: 1px solid #556ee6;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #556ee6;
+            transition: background-color 0.3s;
+        }
+        .tab-button.active {
+            background-color: #556ee6;
+            color: #fff;
+        }
+        .fieldset {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .button-primary {
+            background-color: #556ee6;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button-primary:hover {
+            background-color: #4056b3;
+        }
     </style>
-  	
-  	
-  	
+          
 </body>
 </html>
