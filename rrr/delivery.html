@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crumbl Order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+        }
+        .header {
+            background: linear-gradient(180deg, #4dedd9, #3fe2dd 13.32%, #39dfdf 25.14%, #30d5db 35.64%, #23c8dc 51.14%, #1bb9e0 67.14%, #19b5d8 85.64%, #2da2d5);
+            padding: 15px;
+        }
+        .container {
+            padding: 20px;
+        }
+        .card {
+            display: inline-block;
+            width: 300px;
+            height: 200px;
+            background: linear-gradient(180deg, #4dedd9, #3fe2dd 13.32%, #39dfdf 25.14%, #30d5db 35.64%, #23c8dc 51.14%, #1bb9e0 67.14%, #19b5d8 85.64%, #2da2d5);
+            border: 2px solid #000;
+            border-radius: 10px;
+            margin: 15px;
+            padding: 100px;
+            position: relative;
+            vertical-align: top; /* Ensures cards are aligned */
+            cursor: pointer;
+        }
+        .card h2 {
+            font-size: 50px;
+            margin: 0;
+        }
+        .pickup-card {
+            background: linear-gradient(180deg, #4dedd9, #3fe2dd 13.32%, #39dfdf 25.14%, #30d5db 35.64%, #23c8dc 51.14%, #1bb9e0 67.14%, #19b5d8 85.64%, #2da2d5);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>КрастиКраб</h1>
+    </div>
+
+    <div class="container">
+        <h1>Создать заказ</h1>
+        <div class="card" style="text-align: center;">
+            <h2>Доставка</h2>
+            <img src="image/scooter.gif" alt="Delivery Scooter" style="width: 220px; height: auto;">
+        </div>
+        <div class="card pickup-card">
+            <h2>Самовывоз</h2>
+            <img src="image/market.gif" alt="Pickup Market" style="width: 210px; height: auto;">
+        </div>
+    </div>
+
+</body>
+</html>
