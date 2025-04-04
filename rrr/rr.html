@@ -36,7 +36,7 @@
         }
 
         .carousel-item:nth-child(1) {
-            background-color: #ffcccc; /* Цвет фона для первого элемента */
+            background-color: #742A1E; /* Цвет фона для первого элемента */
         }
 
         .carousel-item:nth-child(2) {
@@ -90,7 +90,6 @@
                     </div>
                     <div class="div3">
                         <div class="frame-group">
-                            <img class="frame-child" alt="" src="Frame 7.png">
                             <div class="wrapper">
                                 <div class="div4">Доставка</div>
                             </div>
@@ -100,10 +99,7 @@
                 </div>
             </div>
             <div class="div5">
-                <img class="icon" alt="" src="Logo.png">
-                <img class="icon1" alt="" src="поиск.svg">
                 <div class="div6">
-                    <img class="cart-icon" alt="" src="Cart.svg">
                     <div class="div7" id="cart-total-display" style="cursor: pointer;">0 ₽</div>
                     <div class="cart" id="cart">
                         <h3>Корзина</h3>
@@ -114,7 +110,6 @@
                 </div>
                 <div class="dropdown">
                     <div class="div6">
-                        <img class="cart-icon" alt="" src="Pixel/Regular/Divider.svg">
                         <div class="div9">Меню</div>
                     </div>
                     <div class="dropdown-content">
@@ -128,7 +123,10 @@
 
         <div class="carousel">
             <div class="carousel-container" id="carousel-container">
-                <div class="carousel-item">Акция 1</div>
+                <div class="carousel-item">
+                    <img src="Burgers/akciya.jpg" alt="Акция 1" style="width: 100%; height: auto;">
+                    <div></div>
+                </div>
                 <div class="carousel-item">Акция 2</div>
                 <div class="carousel-item">Акция 3</div>
                 <div class="carousel-item">Акция 4</div>
@@ -157,119 +155,83 @@
         </div>
         <div class="div20" id="burger-section">
             <div class="div21">Бургеры</div>
-            <div class="scrollable div22" id="burger-list">
-                <div class="div23">
-                    <div class="inner"></div>
-                    <div class="group">
-                        <div class="div24">220 ₽</div>
-                        <div class="div25">Взрослый крабсбургер</div>
-                        <button class="add-to-cart" data-price="220" data-name="Взрослый крабсбургер">+</button>
-                    </div>
-                </div>
-                <div class="div26">
-                    <div class="inner"></div>
-                    <div class="group">
-                        <div class="div24">220 ₽</div>
-                        <div class="div25">Мотобургер</div>
-                        <button class="add-to-cart" data-price="220" data-name="Мотобургер">+</button>
-                    </div>
-                </div>
-                <div class="div29">
-                    <div class="inner"></div>
-                    <div class="group">
-                        <div class="div24">220 ₽</div>
-                        <div class="div25">Плачущий Джонни</div>
-                        <button class="add-to-cart" data-price="220" data-name="Плачущий Джонни">+</button>
-                    </div>
-                </div>
-                <div class="div32">
-                    <div class="inner"></div>
-                    <div class="group">
-                        <div class="div24">220 ₽</div>
-                        <div class="div34">
-                            <span class="txt">
-                                <p class="p">Двойной бифбургер</p>
-                            </span>
-                        </div>
-                        <button class="add-to-cart" data-price="220" data-name="Двойной бифбургер">+</button>
-                    </div>
-                </div>
-                <div class="div35">
-                    <div class="inner"></div>
-                    <div class="group">
-                        <div class="div24">220 ₽</div>
-                        <div class="div25">Красти-дог</div>
-                        <button class="add-to-cart" data-price="220" data-name="Красти-дог">+</button>
-                    </div>
-                </div>
-                <div class="div38">
-                    <div class="inner"></div>
-                    <div class="group">
-                        <div class="div24">220 ₽</div>
-                        <div class="div25">Глазастый крабсбургер</div>
-                        <button class="add-to-cart" data-price="220" data-name="Глазастый крабсбургер">+</button>
-                    </div>
-                </div>
-                <div class="div41">
-                    <div class="inner"></div>
-                    <div class="group">
-                        <div class="div24">220 ₽</div>
-                        <div class="div25">Крабьи котлеты Делюксг</div>
-                        <button class="add-to-cart" data-price="220" data-name="Крабьи котлеты Делюксг">+</button>
-                    </div>
-                </div>
-            </div>
+<div class="scrollable div22" id="burger-list">
+    <div class="div23">
+        <div class="inner">
+            <img src="Burgers/burgers1.png" alt="Взрослый крабсбургер" style="width: 220px; height: auto" >
         </div>
-        <div class="div20" id="chef-section" style="display: none;">
-            <div class="div21">Товары от шефа</div>
-            <div class="scrollable div22" id="chef-list">
-                <div class="chef-item">
-                    <div class="inner"></div>
-                    <div class="group">
-                        <div class="chef-price">300 ₽</div>
-                        <div class="chef-name">Стейк с грибным соусом</div>
-                        <button class ="add-to-cart" data-price="300" data-name="Стейк с грибным соусом">+</button>
-                    </div>
-                </div>
-                <div class="chef-item">
-                    <div class="inner"></div>
-                    <div class="group">
-                        <div class="chef-price">250 ₽</div>
-                        <div class="chef-name">Куриный шашлык</div>
-                        <button class="add-to-cart" data-price="250" data-name="Куриный шашлык">+</button>
-                    </div>
-                </div>
-                <div class="chef-item">
-                    <div class="inner"></div>
-                    <div class="group">
-                        <div class="chef-price">350 ₽</div>
-                        <div class="chef-name">Лосось на гриле</div>
-                        <button class="add-to-cart" data-price="350" data-name="Лосось на гриле">+</button>
-                    </div>
-                </div>
-                <div class="chef-item">
-                    <div class="inner"></div>
-                    <div class="group">
-                        <div class="chef-price">400 ₽</div>
-                        <div class="chef-name">Паста с морепродуктами</div>
-                        <button class="add-to-cart" data-price="400" data-name="Паста с морепродуктами">+</button>
-                    </div>
-                </div>
-                <div class="chef-item">
-                    <div class="inner"></div>
-                    <div class="group">
-                        <div class="chef-price">450 ₽</div>
-                        <div class="chef-name">Ризотто с грибами</div>
-                        <button class="add-to-cart" data-price="450" data-name="Ризотто с грибами">+</button>
-                    </div>
-                </div>
-                <div class="chef-item">
-                    <div class="inner"></div>
-                    <div class="group">
-                        <div class="chef-price">500 ₽</div>
-                        <div class="chef-name">Креветки в чесночном соусе</div>
-                        <button class="add-to-cart" data-price="500" data-name="Креветки в чесночном соусе">+</button>
-                    </div>
+        <div class="group">
+            <div class="div24">220 ₽</div>
+            <div class="div25">Взрослый крабсбургер</div>
+            <button class="add-to-cart" data-price="220" data-name="Взрослый крабсбургер">+</button>
+        </div>
+    </div>
+    <div class="div26">
+        <div class="inner">
+            <img src="Burgers/burgers2.png" alt="Мотобургер" style="width: 220px; height: auto" >
+        </div>
+        <div class="group">
+            <div class="div24">220 ₽</div>
+            <div class="div25">Мотобургер</div>
+            <button class="add-to-cart" data-price="220" data-name="Мотобургер">+</button>
+        </div>
+    </div>
+    <div class="div29">
+        <div class="inner">
+            <img src="Burgers/burgers3.png" alt="Плачущий Джонни" style="width: 220px; height: auto" >
+        </div>
+        <div class="group">
+            <div class="div24">220 ₽</div>
+            <div class="div25">Плачущий Джонни</div>
+            <button class="add-to-cart" data-price="220" data-name="Плачущий Джонни">+</button>
+        </div>
+    </div>
+    <div class="div32">
+        <div class="inner">
+            <img src="Burgers/burgers4.png" alt="Двойной бифбургер" style="width: 220px; height: auto" >
+        </div>
+        <div class="group">
+            <div class="div24">220 ₽</div>
+            <div class="div34">
+                <span class="txt">
+                    <p class="p">Двойной бифбургер</p>
+                </span>
+            </div>
+            <button class="add-to-cart" data-price="220" data-name="Двойной бифбургер">+</button>
+        </div>
+    </div>
+    <div class="div35">
+        <div class="inner">
+            <img src="Burgers/burgers5.png" alt="Красти-дог" style="width: 300px; height: auto" >
+        </div>
+        <div class="group">
+            <div class="div24">220 ₽</div>
+            <div class="div25">Красти-дог</div>
+            <button class="add-to-cart" data-price="220" data-name="Красти-дог">+</button>
+        </div>
+    </div>
+    <div class="div38">
+        <div class="inner">
+            <img src="Burgers/burgers6.png" alt="Глазастый крабсбургер"style="width: 230px; height: 190px
+            " >
+        </div>
+        <div class="group">
+            <div class="div24">220 ₽</div>
+            <div class="div25">Глазастый крабсбургер</div>
+            <button class="add-to-cart" data-price="220" data-name="Глазастый крабсбургер">+</button>
+        </div>
+    </div>
+    <div class="div41">
+        <div class="inner">
+            <img src="Burgers/burgers7.png" alt="Крабьи котлеты Делюксг" style="width: 220px; height: auto" >
+        </div>
+        <div class="group">
+            <div class="div24">220 ₽</div>
+            <div class="div25">Крабьи котлеты Делюксг</div>
+            <button class="add-to-cart" data-price="220" data-name="Крабьи котлеты Делюксг">+</button>
+        </div>
+    </div>
+</div>
                 </div>
             </div>
         </div>
