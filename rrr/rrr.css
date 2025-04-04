@@ -617,23 +617,6 @@
     font-family: 'Blob Spongey Lowercase';
 }
 
-.add-to-cart {
-    background-color: #4CAF50; /* Зеленый цвет */
-    color: white; /* Белый текст */
-    border: none; /* Без границы */
-    border-radius: 50%; /* Круглая кнопка */
-    width: 30px; /* Ширина кнопки */
-    height: 30px; /* Высота кнопки */
-    cursor: pointer; /* Указатель при наведении */
-    font-size: 20px; /* Размер шрифта */
-    position: absolute; /* Позиционирование */
-    right: 10px; /* Отступ от правого края */
-    top: 60px; /* Отступ от верхнего края */
-}
-
-.add-to-cart:hover {
-    background-color: #45a049; /* Темнее при наведении */
-}
 .cart {
     position: absolute;
     top: 60px; /* Позиция под меню */
@@ -654,7 +637,78 @@
 
 .cart-total {
     font-weight: bold;
-    margin-top: 60px;
+    margin-top: 80px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Стили для корзины */
+.cart {
+    position: absolute;
+    top: 60px; /* Позиция под меню */
+    right: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 10;
+    width: 200px; /* Ширина корзины */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Скрыто по умолчанию */
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.cart-total {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Стили для кнопки "Добавить в корзину" */
+.add-to-cart {
+    background-color: #4CAF50; /* Зеленый цвет */
+    color: white; /* Белый текст */
+    border: none; /* Без границы */
+    border-radius: 50%; /* Круглая кнопка */
+    width: 30px; /* Ширина кнопки */
+    height: 30px; /* Высота кнопки */
+    cursor: pointer; /* Указатель при наведении */
+    font-size: 20px; /* Размер шрифта */
+    position: relative; /* Позиционирование */
+    margin-left: 10px; /* Отступ слева для кнопки */
+}
+
+.add-to-cart:hover {
+    background-color: #45a049; /* Темнее при наведении */
 }
 
 #order-button {
@@ -669,4 +723,62 @@
 
 #order-button:hover {
     background-color: #45a049; /* Темнее при наведении */
+}
+
+/* Стили для бокового скроллинга */
+.scrollable {
+    overflow-x: auto; /* Включаем горизонтальный скроллинг */
+    white-space: nowrap; /* Элементы не переносятся на новую строку */
+}
+
+.scrollable > div {
+    display: inline-block; /* Элементы располагаются в строку */
+    margin-right: 20px; /* Отступ между элементами */
+}
+
+/* Стили для товаров от шефа */
+.chef-item {
+    position: relative;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.chef-price {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.chef-name {
+    margin: 0;
+    font-size: 16px;
+}
+#order-button {
+    background-color: #4CAF50; /* Зеленый цвет */
+    color: white; /* Белый текст */
+    border: none; /* Без границы */
+    border-radius: 5px; /* Закругленные углы */
+    padding: 5px 60px; /* Отступы */
+    cursor: pointer; /* Указатель при наведении */
+    width: 100%; /* Ширина кнопки */
+}
+
+#order-button:hover {
+    background-color: #45a049; /* Темнее при наведении */
+}
+.group {
+    display: flex;
+    justify-content: space-between; /* Распределение элементов по ширине */
+    align-items: center; /* Центрирование по вертикали */
+}
+
+.add-to-cart {
+    margin-left: 10px; /* Отступ слева для кнопки */
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, width=device-width">
@@ -10,92 +10,68 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=CoFo+Sans:wght@500&display=swap" />
     
     <style>
-        /* Стили для выпадающего меню */
-        .dropdown {
+        .carousel {
+            display: flex;
+            overflow: hidden;
             position: relative;
-            display: inline-block;
+            width: 100%;
+            height: 200px; /* Высота карусели */
         }
 
-        .dropdown-content {
-            display: none;
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: calc(100% * 5); /* Увеличиваем ширину контейнера для 5 элементов */
+        }
+
+        .carousel-item {
+            min-width: 100%; /* Ширина одного элемента карусели (1 элемент) */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px; /* Размер шрифта для текста */
+            color: #333; /* Цвет текста */
+            padding: 20px; /* Отступы для элементов карусели */
+            box-sizing: border-box; /* Учитывать отступы в ширине */
+        }
+
+        .carousel-item:nth-child(1) {
+            background-color: #ffcccc; /* Цвет фона для первого элемента */
+        }
+
+        .carousel-item:nth-child(2) {
+            background-color: #ccffcc; /* Цвет фона для второго элемента */
+        }
+
+        .carousel-item:nth-child(3) {
+            background-color: #ccccff; /* Цвет фона для третьего элемента */
+        }
+
+        .carousel-item:nth-child(4) {
+            background-color: #ffffcc; /* Цвет фона для четвертого элемента */
+        }
+
+        .carousel-item:nth-child(5) {
+            background-color: #ccffff; /* Цвет фона для пятого элемента */
+        }
+
+        .carousel-button {
             position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            cursor: pointer;
+            padding: 10px;
             z-index: 1;
         }
 
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
+        .prev {
+            left: 10px;
         }
 
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* Стили для корзины */
-        .cart {
-            position: absolute;
-            top: 60px; /* Позиция под меню */
-            right: 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 10px;
-            z-index: 10;
-            width: 200px; /* Ширина корзины */
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            display: none; /* Скрыто по умолчанию */
-        }
-
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-
-        .cart-total {
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        /* Стили для кнопки "Добавить в корзину" */
-        .add-to-cart {
-            background-color: #4CAF50; /* Зеленый цвет */
-            color: white; /* Белый текст */
-            border: none; /* Без границы */
-            border-radius: 50%; /* Круглая кнопка */
-            width: 30px; /* Ширина кнопки */
-            height: 30px; /* Высота кнопки */
-            cursor: pointer; /* Указатель при наведении */
-            font-size: 20px; /* Размер шрифта */
-            position: absolute; /* Позиционирование */
-            right: 10px; /* Отступ от правого края */
-            top: 10px; /* Отступ от верхнего края */
-        }
-
-        .add-to-cart:hover {
-            background-color: #45a049; /* Темнее при наведении */
-        }
-
-        #order-button {
-            background-color: #4CAF50; /* Зеленый цвет */
-            color: white; /* Белый текст */
-            border: none; /* Без границы */
-            border-radius: 5px; /* Закругленные углы */
-            padding: 5px 10px; /* Отступы */
-            cursor: pointer; /* Указатель при наведении */
-            width: 100%; /* Ширина кнопки */
-        }
-
-        #order-button:hover {
-            background-color: #45a049; /* Темнее при наведении */
+        .next {
+            right: 10px;
         }
     </style>
 </head>
@@ -149,7 +125,19 @@
                 </div>
             </div>
         </div>
-        <div class="div10"></div>
+
+        <div class="carousel">
+            <div class="carousel-container" id="carousel-container">
+                <div class="carousel-item">Акция 1</div>
+                <div class="carousel-item">Акция 2</div>
+                <div class="carousel-item">Акция 3</div>
+                <div class="carousel-item">Акция 4</div>
+                <div class="carousel-item">Акция 5</div>
+            </div>
+            <button class="carousel-button prev" id="prev-button">◀</button>
+            <button class="carousel-button next" id="next-button">▶</button>
+        </div>
+
         <div class="div11">
             <div class="div12">
                 <div class="item"></div>
@@ -158,24 +146,23 @@
         </div>
         <div class="sticky">
             <div class="div14">
-                <div class="div15">Бургеры</div>
+                <div class="div15" id="burger-button">Бургеры</div>
             </div>
             <div class="div16">
-                <div class="div15">от шефа</div>
+                <div class="div15" id="chef-button">От шефа</div>
             </div>
             <div class="div16">
                 <div class="div15">сэндвичи</div>
             </div>
         </div>
-        <div class="div20">
+        <div class="div20" id="burger-section">
             <div class="div21">Бургеры</div>
-            <div class="div22">
+            <div class="scrollable div22" id="burger-list">
                 <div class="div23">
                     <div class="inner"></div>
                     <div class="group">
                         <div class="div24">220 ₽</div>
                         <div class="div25">Взрослый крабсбургер</div>
-                        <img class="frame-item" alt="" src="Frame 3412.svg">
                         <button class="add-to-cart" data-price="220" data-name="Взрослый крабсбургер">+</button>
                     </div>
                 </div>
@@ -192,7 +179,6 @@
                     <div class="group">
                         <div class="div24">220 ₽</div>
                         <div class="div25">Плачущий Джонни</div>
-                        <img class="frame-item" alt="" src="Frame 3412.svg">
                         <button class="add-to-cart" data-price="220" data-name="Плачущий Джонни">+</button>
                     </div>
                 </div>
@@ -205,7 +191,6 @@
                                 <p class="p">Двойной бифбургер</p>
                             </span>
                         </div>
-                        <img class="frame-item" alt="" src="Frame 3412.svg">
                         <button class="add-to-cart" data-price="220" data-name="Двойной бифбургер">+</button>
                     </div>
                 </div>
@@ -214,7 +199,6 @@
                     <div class="group">
                         <div class="div24">220 ₽</div>
                         <div class="div25">Красти-дог</div>
-                        <img class="frame-item" alt="" src="Frame 3412.svg">
                         <button class="add-to-cart" data-price="220" data-name="Красти-дог">+</button>
                     </div>
                 </div>
@@ -223,7 +207,6 @@
                     <div class="group">
                         <div class="div24">220 ₽</div>
                         <div class="div25">Глазастый крабсбургер</div>
-                        <img class="frame-item" alt="" src="Frame 3412.svg">
                         <button class="add-to-cart" data-price="220" data-name="Глазастый крабсбургер">+</button>
                     </div>
                 </div>
@@ -232,28 +215,62 @@
                     <div class="group">
                         <div class="div24">220 ₽</div>
                         <div class="div25">Крабьи котлеты Делюксг</div>
-                        <img class="frame-item" alt="" src="Frame 3412.svg">
                         <button class="add-to-cart" data-price="220" data-name="Крабьи котлеты Делюксг">+</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="div44">
-            <div class="div45">От шефа</div>
-            <div class="div46">
-                <div class="div47">
+        <div class="div20" id="chef-section" style="display: none;">
+            <div class="div21">Товары от шефа</div>
+            <div class="scrollable div22" id="chef-list">
+                <div class="chef-item">
                     <div class="inner"></div>
-                    <div class="parent6">
-                        <div class="div48">220 ₽</div>
-                        <div class="div49">Говяжья вырезка с подкопчённым соусом...</div>
-                        <div class="div50">250 г</div>
-                        <img class="frame-item" alt="" src="Frame 3412.svg">
-                        <div class="div51">
-                            <p class="p">(говяжья вырезка, бекон, сыр Дор блю, булгур, болгарский перец, цукини, сливки)</p>
-                        </div>
+                    <div class="group">
+                        <div class="chef-price">300 ₽</div>
+                        <div class="chef-name">Стейк с грибным соусом</div>
+                        <button class ="add-to-cart" data-price="300" data-name="Стейк с грибным соусом">+</button>
                     </div>
                 </div>
-                <!-- Добавьте другие блюда с кнопками "Добавить в корзину" аналогично -->
+                <div class="chef-item">
+                    <div class="inner"></div>
+                    <div class="group">
+                        <div class="chef-price">250 ₽</div>
+                        <div class="chef-name">Куриный шашлык</div>
+                        <button class="add-to-cart" data-price="250" data-name="Куриный шашлык">+</button>
+                    </div>
+                </div>
+                <div class="chef-item">
+                    <div class="inner"></div>
+                    <div class="group">
+                        <div class="chef-price">350 ₽</div>
+                        <div class="chef-name">Лосось на гриле</div>
+                        <button class="add-to-cart" data-price="350" data-name="Лосось на гриле">+</button>
+                    </div>
+                </div>
+                <div class="chef-item">
+                    <div class="inner"></div>
+                    <div class="group">
+                        <div class="chef-price">400 ₽</div>
+                        <div class="chef-name">Паста с морепродуктами</div>
+                        <button class="add-to-cart" data-price="400" data-name="Паста с морепродуктами">+</button>
+                    </div>
+                </div>
+                <div class="chef-item">
+                    <div class="inner"></div>
+                    <div class="group">
+                        <div class="chef-price">450 ₽</div>
+                        <div class="chef-name">Ризотто с грибами</div>
+                        <button class="add-to-cart" data-price="450" data-name="Ризотто с грибами">+</button>
+                    </div>
+                </div>
+                <div class="chef-item">
+                    <div class="inner"></div>
+                    <div class="group">
+                        <div class="chef-price">500 ₽</div>
+                        <div class="chef-name">Креветки в чесночном соусе</div>
+                        <button class="add-to-cart" data-price="500" data-name="Креветки в чесночном соусе">+</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -264,21 +281,18 @@
         const cartContainer = document.getElementById('cart');
         const cartItemsContainer = document.getElementById('cart-items');
 
-        // Функция для добавления товара в корзину
         function addToCart(name, price) {
             cart.push({ name, price });
             updateCartTotal();
             updateCartItems();
         }
 
-        // Функция для обновления отображения общей стоимости
         function updateCartTotal() {
             const total = cart.reduce((acc, item) => acc + item.price, 0);
             cartTotalDisplay.innerHTML = `${total} ₽`;
             document.getElementById('cart-total').innerHTML = `Итого: ${total} ₽`;
         }
 
-        // Функция для обновления содержимого корзины
         function updateCartItems() {
             cartItemsContainer.innerHTML = '';
             cart.forEach(item => {
@@ -289,7 +303,6 @@
             });
         }
 
-        // Обработчик событий для кнопок "Добавить в корзину"
         document.querySelectorAll('.add-to-cart').forEach(button => {
             button.addEventListener('click', () => {
                 const price = parseInt(button.getAttribute('data-price'));
@@ -298,22 +311,67 @@
             });
         });
 
-        // Обработчик событий для кнопки "Заказать"
         document.getElementById('order-button').addEventListener('click', () => {
-            window.location.href = 'delivery.html'; // Переход на страницу доставки
+            window.location.href = 'delivery.html'; 
         });
 
-        // Показать корзину при нажатии на общую стоимость
         cartTotalDisplay.addEventListener('click', () => {
             cartContainer.style.display = cartContainer.style.display === 'block' ? 'none' : 'block';
         });
 
-        // Закрыть корзину при нажатии вне её
         document.addEventListener('click', (event) => {
             if (!cartContainer.contains(event.target) && event.target !== cartTotalDisplay) {
                 cartContainer.style.display = 'none';
             }
         });
+
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+
+        function updateCarousel() {
+            const offset = -currentIndex * 100; // Сдвиг в процентах для карусели
+            document.getElementById('carousel-container').style.transform = `translateX(${offset}%)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            updateCarousel();
+        }
+
+        document.getElementById('next-button').addEventListener('click', nextSlide);
+        document.getElementById('prev-button').addEventListener('click', prevSlide);
+
+        // Автоматическая смена слайдов каждые 5 секунд
+        setInterval(nextSlide, 10000);
+
+        document.getElementById('burger-button').addEventListener('click', () => {
+            document.getElementById('burger-section').style.display = 'block';
+            document.getElementById('chef-section').style.display = 'none';
+            setActiveSection('burger-button');
+        });
+
+        document.getElementById('chef-button').addEventListener('click', () => {
+            document.getElementById('burger-section').style.display = 'none';
+            document.getElementById('chef-section').style.display = 'block';
+            setActiveSection('chef-button');
+        });
+
+        function setActiveSection(activeButtonId) {
+            const buttons = [document.getElementById('burger-button'), document.getElementById('chef-button')];
+            buttons.forEach(button => {
+                if (button.id === activeButtonId) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+        }
     </script>
 </body>
 </html>
