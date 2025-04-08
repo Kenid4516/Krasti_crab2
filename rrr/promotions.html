@@ -3,119 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Красти Краб - Акции</title>
-    
+    <title>Форма регистрации</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-             background: linear-gradient(180deg, #4dedd9, #3fe2dd 13.32%, #39dfdf 25.14%, #30d5db 35.64%, #23c8dc 51.14%, #1bb9e0 67.14%, #19b5d8 85.64%, #2da2d5);
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
         }
-        header {
-            background-color:  #E9D3A5;
-            color: #742a1e;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
+
+        .registration-form {
             background-color: white;
+            padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
         }
-        h2 {
-            color:  #742a1e;
-        }
-        .promotion {
-            border: 1px solid #007bff;
-            border-radius: 5px;
-            padding: 15px;
-            margin: 10px 0;
-        }
-        .promotion h3 {
-            margin: 0;
-        }
-        .promotion p {
-            margin: 5px 0;
-        }
-        footer {
+
+        .registration-form h2 {
             text-align: center;
-            padding: 10px;
-            background-color: #007bff;
-            color: #742a1e;
-            position: relative;
-            bottom: 0;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
             width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
-        /* Адаптивные стили */
-        @media (max-width: 600px) {
-            header {
-                padding: 15px;
-            }
-            .container {
-                padding: 15px;
-            }
-            .promotion {
-                padding: 10px;
-            }
-            footer {
-                padding: 8px;
-            }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
 
-        @media (max-width: 400px) {
-            header h1 {
-                font-size: 24px;
-            }
-            header h2 {
-                font-size: 18px;
-            }
-            .promotion h3 {
-                font-size: 18px;
-            }
-            .promotion p {
-                font-size: 14px;
-            }
+        .form-group button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>Красти Краб</h1>
-    <h2>Акции и Специальные Предложения</h2>
-</header>
-
-<div class="container">
-    <div class="promotion">
-        <h3>Скидка 20% на все бургеры!</h3>
-        <p>Каждый понедельник с 12:00 до 15:00. Не упустите шанс попробовать наши вкуснейшие бургеры по сниженной цене!</p>
+    <div class="registration-form">
+        <h2>Регистрация</h2>
+        <form id="regForm">
+            <div class="form-group">
+                <label for="username">Имя пользователя</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Электронная почта</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Зарегистрироваться</button>
+            </div>
+        </form>
     </div>
 
-    <div class="promotion">
-        <h3>Комбо-обед за полцены!</h3>
-        <p>При покупке любого комбо-обеда, второй комбо-обед со скидкой 50%! Предложение действует с четверга по воскресенье.</p>
-    </div>
+    <script>
+        document.getElementById('regForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы
 
-    <div class="promotion">
-        <h3>Бесплатный напиток при заказе от 1000 рублей!</h3>
-        <p>Закажите на сумму от 1000 рублей и получите бесплатный напиток на выбор. Акция действует до конца месяца.</p>
-    </div>
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
-    <div class="promotion">
-        <h3>Счастливые часы!</h3>
-        <p>Каждый день с 17:00 до 19:00 - скидка 15% на все закуски. Отличное время для перекуса с друзьями!</p>
-    </div>
-</div>
+            // Здесь вы можете добавить логику для обработки данных регистрации
+            console.log('Имя пользователя:', username);
+            console.log('Электронная почта:', email);
+            console.log('Пароль:', password);
 
-<footer>
-    <p>&copy; 2023 Красти Краб. Все права защищены.</p>
-</footer>
-
-
+            // Очистка полей формы после отправки
+            this.reset();
+        });
+    </script>
 </body>
 </html>

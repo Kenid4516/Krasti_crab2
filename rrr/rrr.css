@@ -783,3 +783,32 @@
     margin-left: 10px; /* Отступ слева для кнопки */
 }
 
+#developer-section {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#developer-section input {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#developer-section button {
+    background-color: #4CAF50; /* Зеленый цвет */
+    color: white; /* Белый текст */
+    border: none; /* Без границы */
+    border-radius: 5px; /* Закругленные углы */
+    padding: 10px; /* Отступы */
+    cursor: pointer; /* Указатель при наведении */
+    width: 100%; /* Ширина кнопки */
+}
+
+#developer-section button:hover {
+    background-color: #45a049; /* Темнее при наведении */
+}

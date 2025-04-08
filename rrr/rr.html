@@ -17,13 +17,13 @@
             width: 100%;
             height: 200px; /* Высота карусели */
         }
-
+    
         .carousel-container {
             display: flex;
             transition: transform 0.5s ease;
             width: calc(100% * 5); /* Увеличиваем ширину контейнера для 5 элементов */
         }
-
+    
         .carousel-item {
             min-width: 100%; /* Ширина одного элемента карусели (1 элемент) */
             display: flex;
@@ -33,28 +33,30 @@
             color: #333; /* Цвет текста */
             padding: 20px; /* Отступы для элементов карусели */
             box-sizing: border-box; /* Учитывать отступы в ширине */
+            border-radius: var(--carousel-border-radius, 0px); /* Скругление углов */
         }
-
+    
+        /* Пример скругления углов для каждого элемента */
         .carousel-item:nth-child(1) {
             background-color: #742A1E; /* Цвет фона для первого элемента */
         }
-
+    
         .carousel-item:nth-child(2) {
             background-color: #ccffcc; /* Цвет фона для второго элемента */
         }
-
+    
         .carousel-item:nth-child(3) {
             background-color: #ccccff; /* Цвет фона для третьего элемента */
         }
-
+    
         .carousel-item:nth-child(4) {
             background-color: #ffffcc; /* Цвет фона для четвертого элемента */
         }
-
+    
         .carousel-item:nth-child(5) {
             background-color: #ccffff; /* Цвет фона для пятого элемента */
         }
-
+    
         .carousel-button {
             position: absolute;
             top: 50%;
@@ -65,14 +67,15 @@
             padding: 10px;
             z-index: 1;
         }
-
+    
         .prev {
             left: 10px;
         }
-
+    
         .next {
             right: 10px;
         }
+    </style>
     </style>
 </head>
 <body>
@@ -116,6 +119,22 @@
                         <a href="#">Заказы</a>
                         <a href="#">Кабинет</a>
                         <p><a href="about.html">О нас</a></p>
+                        <div id="login-container" style="display: none;">
+                            <div class="login-form">
+                                <p><a href="promotions.html">Вход</a></p>
+                                <button id="login-button">Войти</button>
+                            </div>
+                        </div>
+                
+                        
+                        <div id="developer-section" style="display: none;">
+                            <h2>Добавить товар</h2>
+                            <input type="text" id="product-name" placeholder="Название товара" required>
+                            <input type="number" id="product-price" placeholder="Цена товара" required>
+                            <button id="add-product-button">Добавить товар</button>
+                            <div id="product-list"></div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -124,13 +143,22 @@
         <div class="carousel">
             <div class="carousel-container" id="carousel-container">
                 <div class="carousel-item">
-                    <img src="Burgers/akciya.jpg" alt="Акция 1" style="width: 100%; height: auto;">
-                    <div></div>
+                    <img src="Burgers/akciya.jpg" alt="Акция 1" style="width: 110%; height: auto;">
                 </div>
-                <div class="carousel-item">Акция 2</div>
-                <div class="carousel-item">Акция 3</div>
-                <div class="carousel-item">Акция 4</div>
-                <div class="carousel-item">Акция 5</div>
+                <div class="carousel-item">
+                    <img src="image/Frame 1321314265.png" alt="Акция 2" style="width: 110%; height: auto;">
+                </div>
+                <div class="carousel-item">
+                    <img src="image/Frame 1321314266.png" alt="Акция 3" style="width: 110%; height: auto;">
+                </div>
+                
+                <div class="carousel-item">
+                    <img src="image/akcii4.png" alt="Акция 4" style="width: 110%; height: auto;">
+                </div>
+               
+                <div class="carousel-item">
+                    <img src="image/Frame 1321314267.png" alt="Акция 4" style="width: 110%; height: auto;">
+                </div>
             </div>
             <button class="carousel-button prev" id="prev-button">◀</button>
             <button class="carousel-button next" id="next-button">▶</button>
@@ -150,7 +178,7 @@
                 <div class="div15" id="chef-button">От шефа</div>
             </div>
             <div class="div16">
-                <div class="div15">сэндвичи</div>
+                <div class="div15" id="cendvih-button">сэндвичи</div>
             </div>
         </div>
         <div class="div20" id="burger-section">
@@ -230,6 +258,7 @@
             <div class="div25">Крабьи котлеты Делюксг</div>
             <button class="add-to-cart" data-price="220" data-name="Крабьи котлеты Делюксг">+</button>
         </div>
+        
     </div>
 </div>
                 </div>
@@ -264,6 +293,44 @@
                 cartItemsContainer.appendChild(itemDiv);
             });
         }
+        document.getElementById('show-login-button').addEventListener('click', () => {
+    const loginContainer = document.getElementById('login-container');
+    loginContainer.style.display = loginContainer.style.display === 'none' ? 'block' : 'none';
+});
+
+// Login button event
+document.getElementById('login-button').addEventListener('click', () => {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Simple authentication logic
+    if (username === 'developer' && password === 'devpassword') {
+        alert('Разработчик вошел в систему');
+        document.getElementById('developer-section').style.display = 'block';
+        document.getElementById('login-container').style.display = 'none';
+    } else {
+        alert('Неверное имя пользователя или пароль');
+    }
+});
+
+// Add product button event
+document.getElementById('add-product-button').addEventListener('click', () => {
+    const productName = document.getElementById('product-name').value;
+    const productPrice = document.getElementById('product-price').value;
+
+    if (productName && productPrice) {
+        const productList = document.getElementById('product-list');
+        const productDiv = document.createElement('div');
+        productDiv.innerHTML = `${productName} - ${productPrice} ₽`;
+        productList.appendChild(productDiv);
+
+        // Clear input fields
+        document.getElementById('product-name').value = '';
+        document.getElementById('product-price').value = '';
+    } else {
+        alert('Пожалуйста, заполните все поля');
+    }
+});
 
         document.querySelectorAll('.add-to-cart').forEach(button => {
             button.addEventListener('click', () => {
@@ -310,7 +377,7 @@
         document.getElementById('prev-button').addEventListener('click', prevSlide);
 
         // Автоматическая смена слайдов каждые 5 секунд
-        setInterval(nextSlide, 10000);
+        setInterval(nextSlide, 15000);
 
         document.getElementById('burger-button').addEventListener('click', () => {
             document.getElementById('burger-section').style.display = 'block';
