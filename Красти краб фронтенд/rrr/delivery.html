@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crumbl Order</title>
+    <style>
+        body {
+            font-family: 'Blob Spongey Lowercase';
+            color: #000000;
+            text-align: center;
+            position: relative; /* Добавляем позиционирование для псевдоэлемента */
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200%;
+            background-image: url('image/1.png'); /* Устанавливаем фоновое изображение */
+            background-size: cover; /* Изображение будет растянуто на весь экран */
+            background-repeat: no-repeat; /* Не повторяем изображение */
+            filter: blur(5px); /* Применяем эффект размытия */
+            z-index: -1; /* Отправляем псевдоэлемент на задний план */
+        }
+
+        .card {
+            display: inline-block;
+            width: 300px;
+            height: 200px;
+            background: linear-gradient(180deg, #4dedd9, #3fe2dd 13.32%, #39dfdf 25.14%, #30d5db 35.64%, #23c8dc 51.14%, #1bb9e0 67.14%, #19b5d8 85.64%, #2da2d5);
+            border: 2px solid #000;
+            border-radius: 10px;
+            margin: 15px;
+            padding: 100px;
+            position: relative;
+            vertical-align: top; /* Ensures cards are aligned */
+            cursor: pointer;
+        }
+
+        .card h2 {
+            font-size: 50px;
+            margin: 0;
+        }
+
+        .pickup-card {
+            background: linear-gradient(180deg, #4dedd9, #3fe2dd 13.32%, #39dfdf 25.14%, #30d5db 35.64%, #23c8dc 51.14%, #1bb9e0 67.14%, #19b5d8 85.64%, #2da2d5);
+        }
+
+        /* Модальное окно */
+        #modal, #order-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        #modal-content, #order-modal-content {
+            background: white;
+            margin: 15% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            border-radius: 15px; /* Закругление углов */
+        }
+
+        #close-modal, #close-order-modal {
+            margin-top: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        /* Центрирование изображения */
+        #order-modal-content img {
+            display: block;
+            margin: 20px auto; /* Отступ сверху и снизу */
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1></h1>
+    </div>
+
+    <div class="container">
+        <h1 style="font-size: 60px;">Создать заказ</h1>
+
+        <div class="card" id="delivery-card" style="text-align: center;">
+            <h2>Доставка</h2>
+            <img src="image/scooter.gif" alt="Delivery Scooter" style="width: 220px; height: auto;">
+        </div>
+        <div class="card pickup-card" id="pickup-card">
+            <h2>Самовывоз</h2>
+            <img src="image/market.gif" alt="Pickup Market" style="width: 210px; height: auto;">
+        </div>
+    </div>
+
+    <!-- Модальное окно для ввода данных -->
+    <div id="modal">
+        <div id="modal-content">
+            <h2>Введите адрес доставки</h2>
+            <input type="text" id="name" placeholder="Ваше имя" required>
+            <div id="name-error" class="error"></div>
+            <input type="text" id="address" placeholder="Адрес" required>
+            <div id="address-error" class="error"></div>
+            <input type="text" id="apartment" placeholder="Квартира">
+            <input type="text" id="intercom" placeholder="Домофон">
+            <input type="text" id="time" placeholder="Укажите время (например, 14:00)"> <!-- Новое поле для времени -->
+            <div id="time-error" class="error"></div>
+            <button id="next-button">Далее</button>
+            <button id="close-modal">Закрыть</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно для отображения номера заказа -->
+    <div id="order-modal">
+        <div id="order-modal-content">
+            <h2>Номер вашего заказа</h2>
+            <p id="order-number">123456</p> <!-- Здесь будет номер заказа -->
+            <p id="order-details"></p> <!-- Здесь будут указанные данные -->
+            <img src="image/box.gif" alt="Box" style="width: 150px; height: auto;"> <!-- Добавленная гифка -->
+            <button id="close-order-modal">Закрыть</button>
+        </div>
+    </div>
+
+    <script>
+        let lastOrder = null; // Переменная для хранения последнего заказа
+
+        // Генерация случайного номера заказа
+        function generateOrderNumber() {
+            return Math.floor(100000 + Math.random() * 900000); // Генерирует номер от 100000 до 999999
+        }
+
+        // Обработчик для открытия модального окна
+        function showModal() {
+            if (lastOrder) {
+                // Если заказ уже был сделан, показываем данные последнего заказа
+                showLastOrder();
+            } else {
+                document.getElementById('modal').style.display = 'block'; // Показываем модальное окно
+            }
+        }
+
+        // Функция для отображения последнего заказа
+        function showLastOrder() {
+            document.getElementById('order-number').innerText = lastOrder.number; // Устанавливаем номер заказа
+            document.getElementById('order-details').innerText = `Имя: ${lastOrder.name}, Адрес: ${lastOrder.address}, Квартира: ${lastOrder.apartment}, Домофон: ${lastOrder.intercom}, Время: ${lastOrder.time}`; // Добавлено время
+            document.getElementById('order-modal').style.display = 'block'; // Показываем модальное окно с последним заказом
+        }
+
+        // Обработчик для закрытия модального окна
+        document.getElementById('close-modal').addEventListener('click', () => {
+            document.getElementById('modal').style.display = 'none'; // Скрываем модальное окно
+        });
+
+        // Функция для проверки данных
+        function validateData(name, address, time) {
+            let isValid = true;
+
+            // Проверка имени
+            if (name.trim() === "") {
+                document.getElementById('name-error').innerText = "Имя не может быть пустым.";
+                isValid = false;
+            } else {
+                document.getElementById('name-error').innerText = "";
+            }
+
+            // Проверка адреса
+            if (address.trim() === "") {
+                document.getElementById('address-error').innerText = "Адрес не может быть пустым.";
+                isValid = false;
+            } else {
+                document.getElementById('address-error').innerText = "";
+            }
+
+            // Проверка времени (формат HH:MM)
+            const timePattern = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
+            if (time && !timePattern.test(time)) {
+                document.getElementById('time-error').innerText = "Неверный формат времени. Используйте HH:MM.";
+                isValid = false;
+            } else {
+                document.getElementById('time-error').innerText = "";
+            }
+
+            return isValid;
+        }
+
+        // Обработчик для кнопки "Далее"
+        document.getElementById('next-button').addEventListener('click', () => {
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const apartment = document.getElementById('apartment').value;
+            const intercom = document.getElementById('intercom').value;
+            const time = document.getElementById('time').value; // Получаем время
+
+            // Проверяем данные
+            if (validateData(name, address, time)) {
+                // Генерируем номер заказа
+                const orderNumber = generateOrderNumber();
+                lastOrder = { // Сохраняем данные последнего заказа
+                    number: orderNumber,
+                    name: name,
+                    address: address,
+                    apartment: apartment,
+                    intercom: intercom,
+                    time: time // Сохраняем время
+                };
+
+                // Устанавливаем номер заказа в модальное окно
+                document.getElementById('order-number').innerText = orderNumber; 
+                // Указываем данные заказа
+                document.getElementById('order-details').innerText = `Имя: ${name}, Адрес: ${address}, Квартира: ${apartment}, Домофон: ${intercom}, Время: ${time}`; // Добавлено время
+
+                // Скрываем первое модальное окно и показываем второе
+                document.getElementById('modal').style.display = 'none';
+                document.getElementById('order-modal').style.display = 'block';
+            }
+        });
+
+        // Обработчик для закрытия модального окна с номером заказа
+        document.getElementById('close-order-modal').addEventListener('click', () => {
+            document.getElementById('order-modal').style.display = 'none'; // Скрываем модальное окно
+        });
+
+        // Добавляем обработчики событий для карточек
+        document.getElementById('delivery-card').addEventListener('click', showModal);
+        document.getElementById('pickup-card').addEventListener('click', () => {
+            if (lastOrder) {
+                // Если заказ уже был сделан, показываем данные последнего заказа
+                showLastOrder();
+            } else {
+                const name = "КрастиКраб"; // Имя для самовывоза
+                const address = "г.Бикини Боттом ул.Лагуна Гу 7"; // Адрес для самовывоза
+                const time = prompt("Укажите время самовывоза (например, 14:00):"); // Запрашиваем время у пользователя
+
+                // Проверяем время
+                const timePattern = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
+                if (!timePattern.test(time)) {
+                    alert("Неверный формат времени. Используйте HH:MM.");
+                    return; // Прерываем выполнение, если формат времени неверный
+                }
+
+                const orderNumber = generateOrderNumber(); // Генерируем номер заказа
+
+                lastOrder = { // Сохраняем данные последнего заказа
+                    number: orderNumber,
+                    name: name,
+                    address: address,
+                    apartment: "", // Пустое значение для квартиры
+                    intercom: "", // Пустое значение для домофона
+                    time: time // Сохраняем время
+                };
+
+                // Устанавливаем номер заказа и адрес в модальное окно
+                document.getElementById('order-number').innerText = orderNumber; 
+                document.getElementById('order-details').innerText = `Имя: ${name}, Адрес: ${address}, Время: ${time}`; // Добавлено время
+
+                // Показываем модальное окно с данными о заказе
+                document.getElementById('order-modal').style.display = 'block';
+            }
+        });
+    </script>
+
+</body>
+</html>
